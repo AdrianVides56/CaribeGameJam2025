@@ -1,11 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemVisual itemVisual;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public ItemVisual GetItemVisual() => itemVisual;
+
+    public void Trade(TextMeshPro newTitle, TextMeshPro newDesc, Sprite newImage)
+    {
+        itemVisual.Changevisuals(newTitle, newDesc, newImage);
+    }
 }
 
 public struct ItemTrade

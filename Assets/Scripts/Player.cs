@@ -1,16 +1,19 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
 
-    [SerializeField] private Backpack backpack;
+    public Backpack backpack;
 
     [SerializeField] private float moveSpeed = 250f;
     [SerializeField] private float RunMultiplier = 2f;
+
+    public List<int> IdxUsedInLoop = new List<int>();
 
 
     private void Awake()

@@ -17,6 +17,19 @@ public class GameInput : MonoBehaviour
 
     }
 
+    public void ToggleMovementInput(bool enable)
+    {
+        if (enable)
+        {
+            inputActions.Enable();
+            inputActions.Movement.Direction.Enable();
+        }
+        else
+        {
+            inputActions.Movement.Direction.Disable();
+        }
+    }
+
     public Vector2 GetMoveInput()
     {
         return inputActions.Movement.Direction.ReadValue<Vector2>();
@@ -29,5 +42,10 @@ public class GameInput : MonoBehaviour
     public bool IsMovePressed()
     {
         return inputActions.Movement.Direction.IsPressed();
+    }
+
+    public bool IsSpacePressed()
+    {
+        return inputActions.Movement.Space.IsPressed();
     }
 }

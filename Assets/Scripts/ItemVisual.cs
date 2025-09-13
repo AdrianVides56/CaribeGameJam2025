@@ -13,17 +13,6 @@ public class ItemVisual : MonoBehaviour
         ToggleAll(false);
     }
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ToggleAll(bool enable)
     {
         itemImage.enabled = enable;
@@ -33,8 +22,26 @@ public class ItemVisual : MonoBehaviour
 
     public void ToggleProperties(bool enableTitle, bool enableImage, bool enableDesc)
     {
-        itemTitle.enabled = enableTitle;
-        itemImage.enabled = enableImage;
-        itemDescription.enabled = enableDesc;
+        if (itemTitle != null)
+            itemTitle.enabled = enableTitle;
+
+        if (itemImage != null)
+            itemImage.enabled = enableImage;
+
+        if (itemDescription != null)
+            itemDescription.enabled = enableDesc;
     }
+    public void Changevisuals(TextMeshPro newTitle, TextMeshPro newDesc, Sprite newImage)
+    {
+        if (itemImage != null)
+            itemImage.sprite = newImage;
+        if (itemTitle != null)
+            itemTitle.text = newTitle.text;
+        if (itemDescription != null)
+            itemDescription.text = newDesc.text;
+    }
+
+    public TextMeshPro GetTitle() => itemTitle;
+    public TextMeshPro GetDesc() => itemDescription;
+    public Sprite GetSprite() => itemImage.sprite;
 }

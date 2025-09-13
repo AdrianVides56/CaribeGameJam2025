@@ -1,20 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Backpack : MonoBehaviour
 {
     [SerializeField] private float capacity = 4;
 
-    [SerializeField] private Item[] items = new Item[4];
+    [SerializeField] private List<Item> items = new List<Item>();
 
-    void OnEnable()
-    {
-        Debug.Log("Enabled!");
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("OnDisable"); ;
-    }
 
     public void ItemImageOnly()
     {
@@ -27,5 +19,19 @@ public class Backpack : MonoBehaviour
     public void ToggleBackpack(bool enable)
     {
         gameObject.SetActive(enable);
+    }
+
+    public List<Item> GetItems() => items;
+
+    public Item GetItemAt(int idx) => items[idx];
+
+    public void RemoveItem(int idx)
+    {
+        items.RemoveAt(idx);
+    }
+
+    public void InsertItem(Item item, int idx)
+    {
+        items.Add(item);
     }
 }
