@@ -1,40 +1,55 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class InteractablePlace : MonoBehaviour
 {
     [SerializeField]
-    private List<ItemTrade> Trades;
+    private Backpack backpack;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private Button interactButton;
 
-    [SerializeField]
-    private GameObject tradesObject;
+    private bool canInteract = true;
+    private bool isInteracting = false;
+
 
     private void Awake()
     {
-        
+        interactButton.onClick.AddListener(OnInteractClicked);
+        canvas.enabled = false;
     }
 
     private void Start()
     {
-        tradesObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnInteractClicked()
     {
-        if (other.gameObject.TryGetComponent<Player>(out Player player))
-        {
-            Debug.Log("Trading");
-            tradesObject.SetActive(true);
-        }
+        Debug.Log("Cambalacheando!");
     }
 
-    private void OnTriggerExit2D(Collider2D  other)
+    public void OnPlayerEnterTrigger()
     {
-        if (other.gameObject.TryGetComponent<Player>(out Player player))
-        {
-            Debug.Log("Trading");
-            tradesObject.SetActive(false);
-        }
+        //Debug.Log("Player Enter Trigger Place");
+
+        isInteracting = true;
+        backpack.ToggleBackpack(true);
+        backpack.ItemImageOnly();
+
+        canvas.enabled = true;
+    }
+
+    public void OnPlayerExitTrigger()
+    {
+        //Debug.Log("Player Exit Trigger Place");
+        backpack.ToggleBackpack(false);
+        canvas.enabled = false;
+    }
+
+
+    public void EndInteraction()
+    {
+        isInteracting = false;
     }
 
 }

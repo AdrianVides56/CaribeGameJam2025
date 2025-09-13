@@ -7,8 +7,7 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
 
-
-    public EventHandler OnPlayerMove;
+    [SerializeField] private Backpack backpack;
 
     [SerializeField] private float moveSpeed = 250f;
     [SerializeField] private float RunMultiplier = 2f;
@@ -22,6 +21,27 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerMovement();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<InteractablePlace>(out InteractablePlace interactablePlace))
+        {
+            interactablePlace.OnPlayerEnterTrigger();
+
+            backpack.ToggleBackpack(true);
+            backpack.ItemImageOnly();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<InteractablePlace>(out InteractablePlace interactablePlace))
+        {
+            interactablePlace.OnPlayerExitTrigger();
+
+            backpack.ToggleBackpack(false);
+        }
     }
 
     private void PlayerMovement()
@@ -41,7 +61,7 @@ public class Player : MonoBehaviour
             }
 
             rigidBody.linearVelocity = new Vector2(xVelocity, yVelocity);
-            
+
         }
 
     }
