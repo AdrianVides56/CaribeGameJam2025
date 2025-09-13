@@ -1,59 +1,49 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 
 public class Player : MonoBehaviour
 {
-    private CharacterController characterController;
     private Rigidbody2D rigidBody;
-    private Vector2 MoveDir;
-    [SerializeField] private float MoveSpeed = 10f;
+
+
+    public EventHandler OnPlayerMove;
+
+    [SerializeField] private float moveSpeed = 250f;
+    [SerializeField] private float RunMultiplier = 2f;
+
 
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
+
     private void FixedUpdate()
     {
-        PlayerInput();
+        PlayerMovement();
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.TryGetComponent<InteractablePlace>(out InteractablePlace interactablePlace))
-        {
-            Debug.Log("Trading");
-        }
-    }
-
-    private void PlayerInput()
+    private void PlayerMovement()
     {
-        //MoveDir = new Vector2();
-
-        if (GameInput.Instance.IsUpPressed())
+        if (GameInput.Instance.IsMovePressed())
         {
-            rigidBody.AddForce(transform.up * MoveSpeed * Time.deltaTime);
-            MoveDir.y = 1;
+            float xVelocity, yVelocity;
+            if (GameInput.Instance.IsRunPressed())
+            {
+                xVelocity = GameInput.Instance.GetMoveInput().x * Time.deltaTime * moveSpeed * RunMultiplier;
+                yVelocity = GameInput.Instance.GetMoveInput().y * Time.deltaTime * moveSpeed * RunMultiplier;
+            }
+            else
+            {
+                xVelocity = GameInput.Instance.GetMoveInput().x * Time.deltaTime * moveSpeed;
+                yVelocity = GameInput.Instance.GetMoveInput().y * Time.deltaTime * moveSpeed;
+            }
+
+            rigidBody.linearVelocity = new Vector2(xVelocity, yVelocity);
+            
         }
 
-        if (GameInput.Instance.IsDownPressed())
-        {
-            rigidBody.AddForce(-transform.up * MoveSpeed * Time.deltaTime);
-            //MoveDir.y = -1;
-        }
-        if (GameInput.Instance.IsLeftPressed())
-        {
-            rigidBody.AddForce(-transform.right * MoveSpeed * Time.deltaTime);
-            //MoveDir.x = -1;
-        }
-        if (GameInput.Instance.IsRightPressed())
-        {
-            rigidBody.AddForce(transform.right * MoveSpeed * Time.deltaTime);
-            //MoveDir.x = 1;
-        }
-
-
-        //characterController.Move(MoveDir * Time.deltaTime * MoveSpeed);
     }
 
 }

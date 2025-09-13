@@ -3,10 +3,9 @@ using System.Collections;
 
 public class GameInput : MonoBehaviour
 {
-    public static GameInput Instance { get; private set;}
+    public static GameInput Instance { get; private set; }
 
     private InputActions inputActions;
-
 
     private void Awake()
     {
@@ -18,19 +17,17 @@ public class GameInput : MonoBehaviour
 
     }
 
-    public bool IsUpPressed() {
-        return inputActions.Movement.Up.IsPressed();
+    public Vector2 GetMoveInput()
+    {
+        return inputActions.Movement.Direction.ReadValue<Vector2>();
     }
 
-    public bool IsDownPressed() {
-        return inputActions.Movement.Down.IsPressed();
+    public bool IsRunPressed()
+    {
+        return inputActions.Movement.Run.IsPressed();
     }
-
-    public bool IsLeftPressed() {
-        return inputActions.Movement.Left.IsPressed();
-    }
-
-    public bool IsRightPressed() {
-        return inputActions.Movement.Right.IsPressed();
+    public bool IsMovePressed()
+    {
+        return inputActions.Movement.Direction.IsPressed();
     }
 }
