@@ -4,6 +4,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemVisual itemVisual;
+    [SerializeField] private EItem eItem;
 
     public ItemVisual GetItemVisual() => itemVisual;
 
@@ -13,8 +14,22 @@ public class Item : MonoBehaviour
     }
 }
 
-public struct ItemTrade
+public enum EItem
 {
-    public Item item;
-    public Item tradeFor;
+    CaimanDelRio,
+    Shakira,
+    VentanaDelMundo,
+    RioBus,
+    MoteDeQueso,
+    Mojarra,
+    ArrozDeCoco,
+    Carimañola,
+    PibeValderrama,
+    CamisetaJunior,
+    CopoNieve,
+    Seleccion,
+    Iglesia,
+    SimonBolivar,
+    Aduana,
+    Shopping
 }
