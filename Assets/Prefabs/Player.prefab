@@ -196,7 +196,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 2c1999c329e074f47aa655e36cab94e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -251,34 +251,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3869338613841396484}
     m_Modifications:
-    - target: {fileID: 131535379487737079, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c9d5b98f639dcb04b90f3f8e8f020458, type: 3}
-    - target: {fileID: 131535379487737079, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635404481282298676, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c9d5b98f639dcb04b90f3f8e8f020458, type: 3}
-    - target: {fileID: 1635404481282298676, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2910688242101570509, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c9d5b98f639dcb04b90f3f8e8f020458, type: 3}
-    - target: {fileID: 2910688242101570509, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691723479559443244, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5175532148532859670, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.75
@@ -326,14 +298,6 @@ PrefabInstance:
     - target: {fileID: 5915877093407361652, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529807411421352978, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c9d5b98f639dcb04b90f3f8e8f020458, type: 3}
-    - target: {fileID: 6529807411421352978, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

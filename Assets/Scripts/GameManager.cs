@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,16 +8,25 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    private Dictionary<EItem, ItemData> itemDataDict;
+    [SerializeField]
+    private List<IDValuePair<EItem, ItemData>> itemData = new List<IDValuePair<EItem, ItemData>>();
+
     [SerializeField]
     private Player player;
 
     private InteractablePlace lastPlaceInteracted;
 
     public UnityEvent<InteractablePlace> interactedWithPlaceEvent;
+    private bool IsPaused = false;
+    [SerializeField]
+    private OptionsMenu optionsMenu;
 
     void Awake()
     {
         Instance = this;
+
+        itemDataDict = itemData.ToDictionary(pair => pair.Key, pair => pair.Value);
     }
 
     private void Start()
@@ -25,6 +36,25 @@ public class GameManager : MonoBehaviour
         interactedWithPlaceEvent = new UnityEvent<InteractablePlace>();
 
         interactedWithPlaceEvent.AddListener(OnInteractedWithPlace);
+    }
+
+    void Update()
+    {
+        if (!IsPaused && GameInput.Instance.IsPausePressed())
+        {
+            PauseGame();
+        }
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+        optionsMenu.gameObject.SetActive(true);
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1f;
     }
 
     private void OnInteractedWithPlace(InteractablePlace placeInteracted)
@@ -39,4 +69,19 @@ public class GameManager : MonoBehaviour
     }
 
     public Player GetPlayer() => player;
+
+    public Dictionary<EItem, ItemData> GetItemDataDict() => itemDataDict;
+}
+
+[System.Serializable]
+public class IDValuePair<TKey, TValue>
+{
+    public TKey Key;
+    public TValue Value;
+
+    public IDValuePair(TKey key, TValue value)
+    {
+        Key = key;
+        Value = value;
+    }
 }

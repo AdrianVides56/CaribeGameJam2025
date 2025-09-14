@@ -6,18 +6,27 @@ public class InteractablePlace : MonoBehaviour
 {
     [SerializeField]
     private Backpack backpack;
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private Canvas interactCanvas;
     [SerializeField] private Button interactButton;
     [SerializeField] private Minigame minigame;
 
     private bool canInteract = true;
     private bool isInteracting = false;
 
+    /*
+        TODO:
+        Register the trigger collision for the notification
+        Create notification manager
+            - Will contain sets of notifications (images) for the different locations
+            - Will contain sets depending on can interact
+            - will contatin sets depending if won or lose
+    */
+
 
     private void Awake()
     {
         interactButton.onClick.AddListener(OnInteractClicked);
-        canvas.enabled = false;
+        interactCanvas.enabled = false;
     }
 
     private void Start()
@@ -30,28 +39,33 @@ public class InteractablePlace : MonoBehaviour
     {
         if (bWon)
         {
-            Debug.Log("WIN!", gameObject);
+//            Debug.Log("WIN!", gameObject);
             //Do the Cambalache
             //remove item from backpack
             List<Item> PlaceItems = backpack.GetItems();
             int idxToTrade = Random.Range(0, PlaceItems.Count);
-            while (true)
+
+            Player player = GameManager.Instance.GetPlayer();
+            if (player.IdxUsedInLoop.Count < player.backpack.GetCapacity())
             {
-                if (GameManager.Instance.GetPlayer().IdxUsedInLoop.Contains(idxToTrade))
-                    idxToTrade = Random.Range(0, PlaceItems.Count);
-                else
+                while (true)
                 {
-                    GameManager.Instance.GetPlayer().IdxUsedInLoop.Add(idxToTrade);
-                    break;
+                    if (player.IdxUsedInLoop.Contains(idxToTrade))
+                        idxToTrade = Random.Range(0, PlaceItems.Count);
+                    else
+                    {
+                        player.IdxUsedInLoop.Add(idxToTrade);
+                        break;
+                    }
                 }
             }
             Item itemToTrade = PlaceItems[idxToTrade];
 
-            Item PlayerItemToReplace = GameManager.Instance.GetPlayer().backpack.GetItemAt(idxToTrade);
-            PlayerItemToReplace.Trade(
-                itemToTrade.GetItemVisual().GetTitle(),
-                itemToTrade.GetItemVisual().GetDesc(),
-                itemToTrade.GetItemVisual().GetSprite());
+            if (GameManager.Instance.GetItemDataDict().TryGetValue(itemToTrade.GetEItem(), out ItemData tradeData))
+            {
+                Item PlayerItemToReplace = player.backpack.GetItemAt(idxToTrade);
+                PlayerItemToReplace.Trade(tradeData);
+            }
 
 
             backpack.RemoveItem(idxToTrade);
@@ -71,7 +85,7 @@ public class InteractablePlace : MonoBehaviour
         GameManager.Instance.interactedWithPlaceEvent.Invoke(this);
 
         //interactButton.enabled = false;
-        canvas.enabled = false;
+        interactCanvas.enabled = false;
         minigame.StartMinigame();
     }
 
@@ -87,7 +101,7 @@ public class InteractablePlace : MonoBehaviour
         backpack.ToggleBackpack(true);
         backpack.ItemImageOnly();
 
-        canvas.enabled = true;
+        interactCanvas.enabled = true;
     }
 
     public void SetCanInteract(bool value) => canInteract = value;
@@ -97,7 +111,7 @@ public class InteractablePlace : MonoBehaviour
     {
         //Debug.Log("Player Exit Trigger Place");
         backpack.ToggleBackpack(false);
-        canvas.enabled = false;
+        interactCanvas.enabled = false;
     }
 
 

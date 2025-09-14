@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ID_Seleccion
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   eItem: 11
-  title: 
+  title: "Casa de la Selecci\xF3n"
   description: 
   image: {fileID: -2632945989916955305, guid: 422a367e8c443384d8563700b41107a6, type: 3}

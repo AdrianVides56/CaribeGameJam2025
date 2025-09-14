@@ -40,6 +40,15 @@ public class ItemVisual : MonoBehaviour
         if (itemDescription != null)
             itemDescription.text = newDesc.text;
     }
+    public void Changevisuals(string newTitle, string newDesc, Sprite newImage)
+    {
+        if (itemImage != null)
+            itemImage.sprite = newImage;
+        if (itemTitle != null)
+            itemTitle.text = newTitle;
+        if (itemDescription != null)
+            itemDescription.text = newDesc;
+    }
 
     public TextMeshPro GetTitle() => itemTitle;
     public TextMeshPro GetDesc() => itemDescription;

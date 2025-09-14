@@ -22,30 +22,35 @@ public class GameInput : MonoBehaviour
         if (enable)
         {
             inputActions.Enable();
-            inputActions.Movement.Direction.Enable();
+            inputActions.Player.Direction.Enable();
         }
         else
         {
-            inputActions.Movement.Direction.Disable();
+            inputActions.Player.Direction.Disable();
         }
     }
 
     public Vector2 GetMoveInput()
     {
-        return inputActions.Movement.Direction.ReadValue<Vector2>();
+        return inputActions.Player.Direction.ReadValue<Vector2>();
     }
 
     public bool IsRunPressed()
     {
-        return inputActions.Movement.Run.IsPressed();
+        return inputActions.Player.Run.IsPressed();
     }
     public bool IsMovePressed()
     {
-        return inputActions.Movement.Direction.IsPressed();
+        return inputActions.Player.Direction.IsPressed();
     }
 
     public bool IsSpacePressed()
     {
-        return inputActions.Movement.Space.IsPressed();
+        return inputActions.Player.Space.IsPressed();
+    }
+
+    public bool IsPausePressed()
+    {
+        return inputActions.Player.Pause.IsPressed();
     }
 }

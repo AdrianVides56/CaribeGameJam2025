@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Backpack : MonoBehaviour
 {
-    [SerializeField] private float capacity = 4;
+    [SerializeField] private int capacity = 4;
 
     [SerializeField] private List<Item> items = new List<Item>();
 
@@ -22,6 +22,8 @@ public class Backpack : MonoBehaviour
     }
 
     public List<Item> GetItems() => items;
+
+    public int GetCapacity() => capacity;
 
     public Item GetItemAt(int idx) => items[idx];
 

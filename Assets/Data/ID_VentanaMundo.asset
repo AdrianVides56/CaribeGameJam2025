@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ID_VentanaMundo
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   eItem: 2
-  title: 
+  title: La Ventana al Mundo
   description: 
-  image: {fileID: -2632945989916955305, guid: 422a367e8c443384d8563700b41107a6, type: 3}
+  image: {fileID: -1195824350990344348, guid: 9792b6d405acab24094a29af21eb4e02, type: 3}

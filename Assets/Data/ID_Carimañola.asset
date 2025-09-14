@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "ID_Carima\xF1ola"
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   eItem: 7
-  title: 
+  title: "Carima\xF1ola"
   description: 
   image: {fileID: -2632945989916955305, guid: 422a367e8c443384d8563700b41107a6, type: 3}
