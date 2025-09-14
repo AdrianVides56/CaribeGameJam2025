@@ -103,10 +103,10 @@ TextureImporter:
       name: Riobus_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 703
-        width: 1299
-        height: 376
+        x: 22
+        y: 385
+        width: 981
+        height: 305
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

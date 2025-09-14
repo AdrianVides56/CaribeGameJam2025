@@ -17,6 +17,11 @@ public class GameInput : MonoBehaviour
 
     }
 
+    void OnDestroy()
+    {
+        inputActions.Disable();
+    }
+
     public void ToggleMovementInput(bool enable)
     {
         if (enable)

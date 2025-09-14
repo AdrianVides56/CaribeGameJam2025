@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ID_MoteQueso
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   eItem: 4
-  title: Mote de Queso
+  title: Mote 'e Queso
   description: 
-  image: {fileID: -2632945989916955305, guid: 422a367e8c443384d8563700b41107a6, type: 3}
+  image: {fileID: 4401616279710694888, guid: 83e6bbe27ca4e2e4ea4bfbae1968248f, type: 3}

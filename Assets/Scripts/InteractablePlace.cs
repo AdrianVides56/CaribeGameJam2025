@@ -10,6 +10,10 @@ public class InteractablePlace : MonoBehaviour
     [SerializeField] private Button interactButton;
     [SerializeField] private Minigame minigame;
 
+    [SerializeField] private AudioSource winMnigameAudio;
+    [SerializeField] private AudioSource loseMnigameAudio;
+
+
     private bool canInteract = true;
     private bool isInteracting = false;
 
@@ -35,11 +39,20 @@ public class InteractablePlace : MonoBehaviour
         backpack.ToggleBackpack(false);
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Player>(out Player player))
+        {
+            //PopupManager.Instance.Push(EPopups.)
+        }
+    }
+
     private void OnMinigameEnded(bool bWon)
     {
         if (bWon)
         {
-//            Debug.Log("WIN!", gameObject);
+            winMnigameAudio.Play();   
+            //            Debug.Log("WIN!", gameObject);
             //Do the Cambalache
             //remove item from backpack
             List<Item> PlaceItems = backpack.GetItems();
@@ -50,7 +63,7 @@ public class InteractablePlace : MonoBehaviour
             {
                 while (true)
                 {
-                    if (player.IdxUsedInLoop.Contains(idxToTrade))
+                    if (TargetItems.Instance.GetCollectedItems().Count > 0 && TargetItems.Instance.GetCollectedItems()[idxToTrade])
                         idxToTrade = Random.Range(0, PlaceItems.Count);
                     else
                     {
@@ -64,7 +77,19 @@ public class InteractablePlace : MonoBehaviour
             if (GameManager.Instance.GetItemDataDict().TryGetValue(itemToTrade.GetEItem(), out ItemData tradeData))
             {
                 Item PlayerItemToReplace = player.backpack.GetItemAt(idxToTrade);
-                PlayerItemToReplace.Trade(tradeData);
+
+                // It's a target Item
+                if (TargetItems.Instance.GetTargetItems().Contains(itemToTrade.GetEItem()))
+                {
+                    int idx = TargetItems.Instance.GetTargetItems().IndexOf(itemToTrade.GetEItem());
+                    TargetItems.Instance.TargetItemFound(idx);
+                    PopupManager.Instance.Push(EPopups.winTargetItem);
+                }
+                else // It's another Item
+                {
+                    PlayerItemToReplace.Trade(tradeData);
+                    PopupManager.Instance.Push(EPopups.winOtherItem);
+                }
             }
 
 
@@ -74,7 +99,10 @@ public class InteractablePlace : MonoBehaviour
         }
         else
         {
-            Debug.Log("Lose", gameObject);
+            // TODO: lose sound
+            //Debug.Log("Lose", gameObject);
+            loseMnigameAudio.Play();
+            PopupManager.Instance.Push(EPopups.loseMinigame);
         }
         // cannot interact till interact with other place
         SetCanInteract(false);

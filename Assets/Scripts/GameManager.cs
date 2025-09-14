@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<EItem, ItemData> itemDataDict;
     [SerializeField]
-    private List<IDValuePair<EItem, ItemData>> itemData = new List<IDValuePair<EItem, ItemData>>();
+    private List<ValuePair<EItem, ItemData>> itemData = new List<ValuePair<EItem, ItemData>>();
 
     [SerializeField]
     private Player player;
@@ -74,12 +74,12 @@ public class GameManager : MonoBehaviour
 }
 
 [System.Serializable]
-public class IDValuePair<TKey, TValue>
+public class ValuePair<TKey, TValue>
 {
     public TKey Key;
     public TValue Value;
 
-    public IDValuePair(TKey key, TValue value)
+    public ValuePair(TKey key, TValue value)
     {
         Key = key;
         Value = value;

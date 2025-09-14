@@ -12,6 +12,8 @@ public class PrecisionBar : Minigame
     private RectTransform handle;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private AudioSource barSound;
 
     private float edge;
     private float winSpace;
@@ -20,16 +22,6 @@ public class PrecisionBar : Minigame
     void Awake()
     {
         canvas.enabled = false;
-    }
-
-    void OnEnable()
-    {
-        Debug.Log("Precision Bar Enabled");
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("Precision Bar Disabled!");
     }
 
     // Update is called once per frame
@@ -49,6 +41,7 @@ public class PrecisionBar : Minigame
             {
                 TriggerEnd(false);
             }
+            barSound.Stop();
 
             this.enabled = false;
         }
@@ -85,8 +78,10 @@ public class PrecisionBar : Minigame
         base.StartMinigame();
 
         canvas.enabled = true;
-        
+
         canPressKey = true;
+
+        barSound.Play();
     }
 
     protected override void Initialize()
