@@ -251,6 +251,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3869338613841396484}
     m_Modifications:
+    - target: {fileID: 131535379487737079, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: m_Size.x
+      value: 7.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 131535379487737079, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: m_Size.y
+      value: 10.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131535379487737079, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9092531957125083380, guid: 7c77b464012cce843bb955d7d7427022, type: 3}
+    - target: {fileID: 131535379487737079, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065925879590770510, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: eItem
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 5175532148532859670, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.75
@@ -291,6 +311,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5374849059002910865, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: eItem
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 5915877093407361652, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
       propertyPath: m_Name
       value: PlayerBackpack
@@ -298,6 +322,14 @@ PrefabInstance:
     - target: {fileID: 5915877093407361652, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142943814882920363, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: eItem
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377122480388640872, guid: 58cebbcbfe0209f42a5d8655031a600f, type: 3}
+      propertyPath: eItem
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ef5f556b7d650314fa750c2c97ae6caf
+guid: 7c77b464012cce843bb955d7d7427022
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7383522532288736105
-    second: Barrio_Abajo_0
+      213: -9092531957125083380
+    second: Coca_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Barrio_Abajo_0
+      name: Coca_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4096
-        height: 1080
+        x: 132
+        y: 9
+        width: 746
+        height: 1010
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96ba920af9a877660800000000000000
-      internalID: 7383522532288736105
+      spriteID: c0f0caafb56d0d180800000000000000
+      internalID: -9092531957125083380
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Barrio_Abajo_0: 7383522532288736105
+      Coca_0: -9092531957125083380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -48,5 +48,9 @@ public enum EItem
     Iglesia,
     SimonBolivar,
     Aduana,
-    Shopping
+    Shopping,
+    Coca,
+    Moneda,
+    Silla,
+    Gorra
 }

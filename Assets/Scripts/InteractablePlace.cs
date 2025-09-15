@@ -39,6 +39,17 @@ public class InteractablePlace : MonoBehaviour
         backpack.ToggleBackpack(false);
     }
 
+    private void OnEnable()
+    {
+        minigame.minigameEndedEvent.AddListener(OnMinigameEnded);       
+        
+    }
+
+    private void OnDisable()
+    {
+        minigame.minigameEndedEvent.RemoveListener(OnMinigameEnded);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
@@ -49,9 +60,12 @@ public class InteractablePlace : MonoBehaviour
 
     private void OnMinigameEnded(bool bWon)
     {
+        /* Debug.Log("LOG: OnMinigameEnded");
+        Debug.LogError("OnMinigameEnded Called"); */
         if (bWon)
         {
-            winMnigameAudio.Play();   
+            /* Debug.LogError("OnMinigameEnded: Won"); */
+            winMnigameAudio.Play();
             //            Debug.Log("WIN!", gameObject);
             //Do the Cambalache
             //remove item from backpack
@@ -76,6 +90,7 @@ public class InteractablePlace : MonoBehaviour
 
             if (GameManager.Instance.GetItemDataDict().TryGetValue(itemToTrade.GetEItem(), out ItemData tradeData))
             {
+                //Debug.LogError("OnMinigameEnded: Cambalache");
                 Item PlayerItemToReplace = player.backpack.GetItemAt(idxToTrade);
 
                 // It's a target Item
@@ -99,6 +114,7 @@ public class InteractablePlace : MonoBehaviour
         }
         else
         {
+            //Debug.LogError("OnMinigameEnded: Lose");
             // TODO: lose sound
             //Debug.Log("Lose", gameObject);
             loseMnigameAudio.Play();

@@ -47,6 +47,8 @@ public class TargetItems : MonoBehaviour
             collectedItems[idx] = true;
         }
 
+        CheckWinGame();
+
     }
 
     private void CheckWinGame()

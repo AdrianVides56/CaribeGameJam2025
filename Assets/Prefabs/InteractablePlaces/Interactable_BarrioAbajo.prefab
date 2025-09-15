@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: eItem
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1823295211596081565, guid: db397dd6c4e360646975aa14accea93f, type: 3}
+      propertyPath: m_Name
+      value: InteractCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 2926671780996845615, guid: db397dd6c4e360646975aa14accea93f, type: 3}
       propertyPath: eItem
       value: 6
@@ -67,6 +71,14 @@ PrefabInstance:
     - target: {fileID: 7255640887746123529, guid: db397dd6c4e360646975aa14accea93f, type: 3}
       propertyPath: eItem
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295628548634802973, guid: db397dd6c4e360646975aa14accea93f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6661446165869814119, guid: 34f576d6873e4034fb18d7d937eb2069, type: 3}
+    - target: {fileID: 7295628548634802973, guid: db397dd6c4e360646975aa14accea93f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Start AudioManager");
+        //Debug.Log("Start AudioManager");
         if (!loopAudio.isPlaying)
         {
             StartCoroutine(PlayAudioLoop());
@@ -29,12 +29,12 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator PlayAudioLoop()
     {
-        Debug.Log("StartPlayAudioLoop");
+        //Debug.Log("StartPlayAudioLoop");
         yield return new WaitForSeconds(delay);
         loopAudio.Play();
         loopAudio.pitch = 1;
         loopAudio.volume = 1;
 
-        Debug.Log("EndPlayAudioLoop");
+        //Debug.Log("EndPlayAudioLoop");
     }
 }

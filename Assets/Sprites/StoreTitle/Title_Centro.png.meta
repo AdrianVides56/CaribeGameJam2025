@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7791af1ef1734a640b3545e53aaded62
+guid: 7c13b9983b22a79488e35fe551fe45bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2678847636884998939
-    second: Plaza_San_Nicolas_0
+      213: -874610403256237250
+    second: Title_Centro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plaza_San_Nicolas_0
+      name: Title_Centro_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e433147442d2dad0800000000000000
-      internalID: -2678847636884998939
+      spriteID: e330d0dd872ccd3f0800000000000000
+      internalID: -874610403256237250
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Plaza_San_Nicolas_0: -2678847636884998939
+      Title_Centro_0: -874610403256237250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
